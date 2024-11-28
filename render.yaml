@@ -1,0 +1,28 @@
+# Exported from Render on 2024-11-28T01:18:48Z
+services:
+- type: web
+  name: Flowise
+  runtime: docker
+  repo: https://github.com/samihadouaj/Flowise
+  plan: starter
+  envVars:
+  - key: BLOB_STORAGE_PATH
+    sync: false
+  - key: SECRETKEY_PATH
+    sync: false
+  - key: LOG_PATH
+    sync: false
+  - key: APIKEY_PATH
+    sync: false
+  - key: DATABASE_PATH
+    sync: false
+  - key: NODE_VERSION
+    sync: false
+  region: oregon
+  dockerContext: .
+  dockerfilePath: ./Dockerfile
+  disk:
+    name: disk
+    mountPath: /opt/render/.flowise
+    sizeGB: 5
+version: "1"
